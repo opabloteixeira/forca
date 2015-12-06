@@ -185,11 +185,17 @@ $(document).ready(function() {
 
 
                       if (palavra[i] === dica_letras[0]) {
+                          palavra_var5 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          palavra_var3 += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_add += palavra[i];
                           $("#palavra").append(palavra[i]);
                       }
                       else if (palavra[i] === dica_letras[1]) {
+                          palavra_var5 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          palavra_var3 += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_add += palavra[i];
                           $("#palavra").append(palavra[i]);
@@ -198,23 +204,61 @@ $(document).ready(function() {
                       else if(palavra[i] == geuss){
                           palavra_add += geuss;
                           palavra_var2 += geuss;
+                          palavra_var3 += geuss;
                           $("#palavra").append(geuss);
                       }
 
                       else if(palavra[i] == palavra_var[i]){
+                          palavra_var5 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          palavra_var3 += palavra[i];
                           palavra_var2 += palavra[i];
+                          palavra_add += palavra[i];
                           $("#palavra").append(palavra_var[i]);
                       }
 
                       else if (palavra[i] == palavra_var2[i]){
+                          console.log('entrou var 2');
+                          palavra_var5 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          palavra_var3 += palavra[i];
+                          palavra_var2 += palavra[i];
+                          palavra_add += palavra[i];
+                          $("#palavra").append(palavra[i]);
+                      }
+                      else if (palavra[i] == palavra_var3[i]){
+                          console.log('entrou var 3');
+                          palavra_add += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_var3 += palavra[i];
-                          $("#palavra").append(palavra_var2[i]);
+                          palavra_var5 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          $("#palavra").append(palavra[i]);
                       }
-                      
+                      else if (palavra[i] == palavra_var4[i]){
+                          console.log('entrou var 4');
+                          palavra_add += palavra[i];
+                          palavra_var2 += palavra[i];
+                          palavra_var3 += palavra[i];
+                          palavra_var5 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          $("#palavra").append(palavra[i]);
+                      }
+                      else if (palavra[i] == palavra_var5[i]){
+                          console.log('entrou var 5');
+                          palavra_add += palavra[i];
+                          palavra_var2 += palavra[i];
+                          palavra_var3 += palavra[i];
+                          palavra_var5 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          $("#palavra").append(palavra[i]);
+                      }
                       else {
                           palavra_add += " _ ";
                           palavra_var2 += " _ ";
+                          palavra_var3 += " _ ";
+                          palavra_var4 += " _ ";
+                          palavra_var5 += " _ ";
                           $("#palavra").append(" _ ");
                       }
 

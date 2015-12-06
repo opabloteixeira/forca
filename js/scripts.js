@@ -34,8 +34,8 @@ $(document).ready(function() {
 
 
 
+
     $.post( "http://mainserver.com.br/hangman/index.php", function( data ) {
-    //console.log(data);
 
         //alert(data['palavra']);
         buttons();
@@ -44,8 +44,6 @@ $(document).ready(function() {
 
         dicas = data['dica'];
 
-        //console.log("terceira letra"+palavra.charAt(2));
-
         for (var u = 0; u < dicas.length; u++) {
           num = dicas[u];
           dica_letras[u] = palavra.charAt(num);
@@ -53,7 +51,7 @@ $(document).ready(function() {
           console.log(dicas[u]);
           console.log(dica_letras[u]);
         }
-
+        console.log(palavra);
         //condiçao - se é igual a palavra
         for (var i = 0; i < palavra.length; i++) {
 
@@ -78,7 +76,7 @@ $(document).ready(function() {
         alert(palavra_add);
 
         $("#palavra").addClass("enable");
-      
+
     });
 
     //cria btns
@@ -99,12 +97,10 @@ $(document).ready(function() {
 
 
 
-var valorDaDiv = $("#palavra").text();
-    console.log(valorDaDiv);
+// var valorDaDiv = $("#palavra").text();
+//     console.log(valorDaDiv);
 
   }); //FIM INICIAR JOGO
-
-
 
   //FUNCTIONS
 
@@ -115,14 +111,13 @@ var valorDaDiv = $("#palavra").text();
   // CLIC DA LETRA
   check = function() {
     list.onclick = function() {
-
       var geuss = (this.innerHTML); //letra clicada
 
       this.setAttribute("class", "active");
 
       this.onclick = null;
-      alert(palavra); //palavra
-      alert(geuss); //letra clicada
+      //alert(palavra); //palavra
+      alert('letra clicada '+geuss); //letra clicada
 
       for (var i = 0; i < palavra.length; i++) {
         //console.log(palavra[i]);
@@ -139,7 +134,7 @@ var valorDaDiv = $("#palavra").text();
       var j = (palavra.indexOf(geuss)); //pega a posição se encontrar o caracter
       if (j === -1) {
         lives -= 1; //uma vida a menos
-        console.log(lives);
+        console.log('vidas '+lives);
 
         switch (lives) {
           case 4:

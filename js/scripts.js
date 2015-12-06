@@ -192,17 +192,10 @@ $(document).ready(function() {
                         $("#palavra").append(" _ ");
                       }
 
-                      
-
-
 
                       contador = contator+1;
                   } //END FOR
                   palavra_var = palavra_add;
-                  for (var i = 0; i < palavra_add.length; i++) {
-                        console.log(palavra_add[i]);
-                        console.log(palavra_var[i]);
-                      }
 
                 
 

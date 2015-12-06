@@ -20,7 +20,7 @@ $(document).ready(function() {
   var num; //numero dentro do laço
   var palavra_add =""; // palavra com dicas
   var palavra_var = "";
-
+  var contator = 0;
 
 
   //INICIO DO JOGO =================================================================
@@ -166,38 +166,49 @@ $(document).ready(function() {
 
                 //var primeira = palavra_add.replace(palavra_add.substring(dica_letras[0] -2, dica_letras[0] ), geuss);
                 document.getElementById("palavra").innerHTML = "";
-                palavra_add = "";
-                for (var i = 0; i < palavra.length; i++) {
+                palavra_add="";
+
+                  for (var i = 0; i < palavra.length; i++) {
+
+                      if (palavra[i] === dica_letras[0]) {
+                          palavra_add += palavra[i]; 
+                          $("#palavra").append(palavra[i]);
+
+                      } else if (palavra[i] === dica_letras[1]) {
+
+                        palavra_add += palavra[i];
+                        $("#palavra").append(palavra[i]);
+
+                      }else if(palavra[i] == geuss){
 
 
+                          palavra_add += geuss;
+                          $("#palavra").append(geuss); 
 
 
-                    if (palavra[i] === dica_letras[0]) {
+                      }else {
 
-                      palavra_add += palavra[i];
-                      $("#palavra").append(palavra[i]);
+                        palavra_add += " _ ";
+                        $("#palavra").append(" _ ");
+                      }
 
-                    } else if (palavra[i] === dica_letras[1]) {
-
-                      palavra_add += palavra[i];
-                      $("#palavra").append(palavra[i]);
-
-                    }else if(palavra[i] == geuss){
                       
-                      palavra_add += geuss;
-                      $("#palavra").append(geuss); 
 
 
-                    }else {
 
-                      palavra_add += " _ ";
-                      $("#palavra").append(" _ ");
+                      contador = contator+1;
+                  } //END FOR
+                  palavra_var = palavra_add;
+                  for (var i = 0; i < palavra_add.length; i++) {
+                        console.log(palavra_add[i]);
+                        console.log(palavra_var[i]);
+                      }
 
-                    }
-                } //END FOR
+                
 
 
-                palavra_var = palavra_add;
+
+
                 var v = v+1;
                 console.log(palavra_var);
               

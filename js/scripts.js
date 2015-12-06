@@ -5,10 +5,6 @@ $(document).ready(function() {
     't', 'u', 'v', 'w', 'x', 'y', 'z'
   ];
 
-  var categories; // Array of topics
-  var chosenCategory; // Selected catagory
-  var getHint; // Word getHint
-  var word; // Selected word
   var guess; // Geuss
   var geusses = []; // Stored geusses
   var lives = 5; // Lives
@@ -18,9 +14,15 @@ $(document).ready(function() {
   var dicas; // lista de posições de dicas
   var dica_letras = []; // lista de letras posoções 
   var num; //numero dentro do laço
-  var palavra_add =""; // palavra com dicas
-  var palavra_var = "";
-  var contator = 0;
+  var palavra_add = []; // palavra com dicas
+  var palavra_var = [];
+  var palavra_var2 = [];
+  var palavra_var3 = [];
+  var palavra_var4 = [];
+  var palavra_var5 = [];
+  var palavra_var6 = [];
+  var palavra_var7 = [];
+  var contador =0;
 
 
   //INICIO DO JOGO =================================================================
@@ -31,6 +33,13 @@ $(document).ready(function() {
     $('#titulo').removeClass('disable');
     palavra_add = "";
     lives = 5;
+    contador = 0;
+
+
+
+
+
+    //Lê SERVIDOR JSON
 
     $.post( "http://mainserver.com.br/hangman/index.php", function( data ) {
 
@@ -77,6 +86,10 @@ $(document).ready(function() {
 
     });
 
+
+
+//CRIA BOTTONS
+
     //cria btns
     function buttons() {
       document.getElementById("buttons").innerHTML = "";
@@ -92,25 +105,22 @@ $(document).ready(function() {
         letters.appendChild(list);
       }
     } //FIM BUTTONS
-
-
-
-// var valorDaDiv = $("#palavra").text();
-//     console.log(valorDaDiv);
-
   }); //FIM INICIAR JOGO
 
-  //FUNCTIONS
 
-  function erro() {
-    alert("errouuuuuu");
-  }
+
+
+
+
+
+
+
+  //FUNCTIONS
 
   // CLIC DA LETRA
   check = function() {
     list.onclick = function() {
       var geuss = (this.innerHTML); //letra clicada
-
       this.setAttribute("class", "active");
 
       this.onclick = null;
@@ -118,10 +128,7 @@ $(document).ready(function() {
       alert('letra clicada '+geuss); //letra clicada
 
       for (var i = 0; i < palavra.length; i++) {
-        //console.log(palavra[i]);
-        //console.log(geuss);
         if (palavra[i] == geuss) {
-          //geusses[i].innerHTML = geuss;
           counter += 1; // acerto
           alert('acertou letra');
         }
@@ -159,7 +166,7 @@ $(document).ready(function() {
         for (var i = 0; i < palavra_add.length; i++) {
           if (palavra[i] == geuss) {
 
-            
+
             if (geuss == dica_letras[0] || geuss == dica_letras[1]) {
                 alert('letra ja existe');
               }else{
@@ -170,51 +177,66 @@ $(document).ready(function() {
 
                   for (var i = 0; i < palavra.length; i++) {
 
+
+
+
+
+
+
+
                       if (palavra[i] === dica_letras[0]) {
-                          palavra_add += palavra[i]; 
+                          palavra_var2 += palavra[i];
+                          palavra_add += palavra[i];
                           $("#palavra").append(palavra[i]);
+                      }
+                      else if (palavra[i] === dica_letras[1]) {
+                          palavra_var2 += palavra[i];
+                          palavra_add += palavra[i];
+                          $("#palavra").append(palavra[i]);
+                      }
 
-                      } else if (palavra[i] === dica_letras[1]) {
-
-                        palavra_add += palavra[i];
-                        $("#palavra").append(palavra[i]);
-
-                      }else if(palavra[i] == geuss){
-
-
+                      else if(palavra[i] == geuss){
                           palavra_add += geuss;
-                          $("#palavra").append(geuss); 
+                          palavra_var2 += geuss;
+                          $("#palavra").append(geuss);
+                      }
 
+                      else if(palavra[i] == palavra_var[i]){
+                          palavra_var2 += palavra[i];
+                          $("#palavra").append(palavra_var[i]);
+                      }
 
-                      }else {
-
-                        palavra_add += " _ ";
-                        $("#palavra").append(" _ ");
+                      else if (palavra[i] == palavra_var2[i]){
+                          palavra_var2 += palavra[i];
+                          palavra_var3 += palavra[i];
+                          $("#palavra").append(palavra_var2[i]);
+                      }
+                      
+                      else {
+                          palavra_add += " _ ";
+                          palavra_var2 += " _ ";
+                          $("#palavra").append(" _ ");
                       }
 
 
-                      contador = contator+1;
+
                   } //END FOR
+
                   palavra_var = palavra_add;
 
-                
-
-
-
-
-                var v = v+1;
-                console.log(palavra_var);
-              
+                console.log(palavra_var3);
 
               }
-            
+
           }
 
-        }
+        } //END FOR
         console.log('acertou nao perdeu vida');
       }
-    }
-  }
+      contador++;
+      console.log('contador '+contador);
+    }//END FUNCTION
+  }//END FUNCTION
 
 
 

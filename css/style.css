@@ -1,0 +1,168 @@
+.disable{ opacity: 0}
+.enable{opacity: 1}
+
+.active {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -moz-transition: all 1s ease-in;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  cursor: default;
+}
+section#ator{
+    position: relative;
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+}
+section#ator img#tronco{
+    position: relative;
+    top:40px;
+    left: 180px
+}
+section#ator img#braco-esquerdo{
+    position: relative;
+    left: 167px;
+    top:18px
+}
+section#ator img#braco-direito{
+    position: relative;
+    top: 26px;
+    left: 1px;
+        
+}
+section#ator img#perna-esquerda{
+    position: relative;
+    top:130px;
+    right: 95px;
+}
+section#ator img#perna-direita{
+    position: relative;
+    top:132px;
+    right: 64px
+}
+section#manager {
+    position: relative;
+    left: 50%;
+    top: 40px;
+    margin-left: -90px;
+    width: 180px;
+    text-align: center;
+}
+section#manager img#bt-left{
+    cursor: pointer
+}
+section#manager img#bt-right{cursor: pointer}
+section#manager img#bt-question{cursor: pointer}
+section#manager img#bt-novo-jogo{cursor: pointer}
+section#palavra{
+    position: relative;
+    text-align: center;
+    font-family: arial;
+    font-size: 70px;
+    text-transform: uppercase;
+}
+
+.gameover{
+    background: url("../img/saw.jpg");
+    width: 450px !important;
+    height: 300px !important;
+    margin-bottom: 80px !important;
+}
+
+h1#titulo{
+    font-size: 48px;
+    text-transform: uppercase;
+    position: relative;
+    text-align: center;
+    left: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+button {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+  background: #c1d72e;
+  color: #fff;
+  border: solid 1px #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 18px 10px;
+  width: 180px;
+  margin: 10px;
+  outline: none;
+}
+button:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+  border: solid 1px #fff;
+  color: #c1d72e;
+}
+#alphabet {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 900px;
+  position: relative;
+  top: 100px;
+}
+#alphabet:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#alphabet li {
+  float: left;
+  margin: 0 10px 10px 0;
+  list-style: none;
+  width: 35px;
+  height: 30px;
+  padding-top: 10px;
+  background: #fff;
+  color: #c1d72e;
+  cursor: pointer;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border: solid 1px #fff;
+  padding-left: 22px;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: black;
+  color: #fff;
+}
+#alphabet li:hover {
+  background: #cccccc;
+  border: solid 1px #fff;
+  color: black;
+}
+
+
+span#novojogo{
+    height: 50px;
+    width: 100px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 24px;
+    position: relative;
+    top: 30px;
+    cursor: pointer;
+}

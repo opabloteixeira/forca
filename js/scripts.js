@@ -19,6 +19,7 @@ $(document).ready(function() {
   var dica_letras = []; // lista de letras posoções 
   var num; //numero dentro do laço
   var palavra_add =""; // palavra com dicas
+  var palavra_var = "";
 
 
 
@@ -30,10 +31,6 @@ $(document).ready(function() {
     $('#titulo').removeClass('disable');
     palavra_add = "";
     lives = 5;
-
-
-
-
 
     $.post( "http://mainserver.com.br/hangman/index.php", function( data ) {
 
@@ -50,6 +47,7 @@ $(document).ready(function() {
 
           console.log(dicas[u]);
           console.log(dica_letras[u]);
+
         }
         console.log(palavra);
         //condiçao - se é igual a palavra
@@ -130,8 +128,9 @@ $(document).ready(function() {
       } //END FOR
 
 
+      //pega a posição se encontrar o caracter
+      var j = (palavra.indexOf(geuss));
 
-      var j = (palavra.indexOf(geuss)); //pega a posição se encontrar o caracter
       if (j === -1) {
         lives -= 1; //uma vida a menos
         console.log('vidas '+lives);
@@ -153,9 +152,62 @@ $(document).ready(function() {
             $('#tronco').addClass('disable');
             $('#ator').addClass('gameover');
         } //END SWITCH
-      } else {
-        console.log('acertou nao perdeu vida');
 
+      } else { //acertou a letra
+
+
+        for (var i = 0; i < palavra_add.length; i++) {
+          if (palavra[i] == geuss) {
+
+            
+            if (geuss == dica_letras[0] || geuss == dica_letras[1]) {
+                alert('letra ja existe');
+              }else{
+
+                //var primeira = palavra_add.replace(palavra_add.substring(dica_letras[0] -2, dica_letras[0] ), geuss);
+                document.getElementById("palavra").innerHTML = "";
+                palavra_add = "";
+                for (var i = 0; i < palavra.length; i++) {
+
+
+
+
+                    if (palavra[i] === dica_letras[0]) {
+
+                      palavra_add += palavra[i];
+                      $("#palavra").append(palavra[i]);
+
+                    } else if (palavra[i] === dica_letras[1]) {
+
+                      palavra_add += palavra[i];
+                      $("#palavra").append(palavra[i]);
+
+                    }else if(palavra[i] == geuss){
+                      
+                      palavra_add += geuss;
+                      $("#palavra").append(geuss); 
+
+
+                    }else {
+
+                      palavra_add += " _ ";
+                      $("#palavra").append(" _ ");
+
+                    }
+                } //END FOR
+
+
+                palavra_var = palavra_add;
+                var v = v+1;
+                console.log(palavra_var);
+              
+
+              }
+            
+          }
+
+        }
+        console.log('acertou nao perdeu vida');
       }
     }
   }

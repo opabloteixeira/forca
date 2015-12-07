@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+
+
+
+
+
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
     'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
     't', 'u', 'v', 'w', 'x', 'y', 'z'
@@ -80,13 +85,15 @@ $(document).ready(function() {
 
 
         }//END FOR
-        alert(palavra_add);
 
         $("#palavra").addClass("enable");
 
     });
 
-
+  $("#bt-question").click(function(){
+      $("#palavra").innerHTML = palavra;
+      document.getElementById("palavra").innerHTML = palavra;
+  });
 
 //CRIA BOTTONS
 
@@ -125,12 +132,10 @@ $(document).ready(function() {
 
       this.onclick = null;
       //alert(palavra); //palavra
-      alert('letra clicada '+geuss); //letra clicada
 
       for (var i = 0; i < palavra.length; i++) {
         if (palavra[i] == geuss) {
           counter += 1; // acerto
-          alert('acertou letra');
         }
       } //END FOR
 
@@ -178,26 +183,26 @@ $(document).ready(function() {
                   for (var i = 0; i < palavra.length; i++) {
 
 
-
-
-
-
-
-
-                      if (palavra[i] === dica_letras[0]) {
+                      if (palavra[i] == dica_letras[0]) {
+                          palavra_var7 += palavra[i];
+                          palavra_var6 += palavra[i];
                           palavra_var5 += palavra[i];
                           palavra_var4 += palavra[i];
                           palavra_var3 += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_add += palavra[i];
+                          palavra_var += palavra[i];
                           $("#palavra").append(palavra[i]);
                       }
-                      else if (palavra[i] === dica_letras[1]) {
+                      else if (palavra[i] == dica_letras[1]) {
+                          palavra_var7 += palavra[i];
+                          palavra_var6 += palavra[i];
                           palavra_var5 += palavra[i];
                           palavra_var4 += palavra[i];
                           palavra_var3 += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_add += palavra[i];
+                          palavra_var += palavra[i];
                           $("#palavra").append(palavra[i]);
                       }
 
@@ -205,25 +210,35 @@ $(document).ready(function() {
                           palavra_add += geuss;
                           palavra_var2 += geuss;
                           palavra_var3 += geuss;
+                          palavra_var4 += geuss;
+                          palavra_var5 += geuss;
+                          palavra_var6 += geuss;
+                          palavra_var7 += geuss;
                           $("#palavra").append(geuss);
                       }
 
                       else if(palavra[i] == palavra_var[i]){
+                          palavra_var7 += palavra[i];
+                          palavra_var6 += palavra[i];
                           palavra_var5 += palavra[i];
                           palavra_var4 += palavra[i];
                           palavra_var3 += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_add += palavra[i];
+                          palavra_var += palavra[i];
                           $("#palavra").append(palavra_var[i]);
                       }
 
                       else if (palavra[i] == palavra_var2[i]){
                           console.log('entrou var 2');
+                          palavra_var7 += palavra[i];
+                          palavra_var6 += palavra[i];
                           palavra_var5 += palavra[i];
                           palavra_var4 += palavra[i];
                           palavra_var3 += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_add += palavra[i];
+                          palavra_var += palavra[i];
                           $("#palavra").append(palavra[i]);
                       }
                       else if (palavra[i] == palavra_var3[i]){
@@ -231,8 +246,11 @@ $(document).ready(function() {
                           palavra_add += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_var3 += palavra[i];
-                          palavra_var5 += palavra[i];
                           palavra_var4 += palavra[i];
+                          palavra_var5 += palavra[i];
+                          palavra_var6 += palavra[i];
+                          palavra_var7 += palavra[i];
+                          palavra_var += palavra[i];
                           $("#palavra").append(palavra[i]);
                       }
                       else if (palavra[i] == palavra_var4[i]){
@@ -240,8 +258,11 @@ $(document).ready(function() {
                           palavra_add += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_var3 += palavra[i];
-                          palavra_var5 += palavra[i];
                           palavra_var4 += palavra[i];
+                          palavra_var5 += palavra[i];
+                          palavra_var6 += palavra[i];
+                          palavra_var7 += palavra[i];
+                          palavra_var += palavra[i];
                           $("#palavra").append(palavra[i]);
                       }
                       else if (palavra[i] == palavra_var5[i]){
@@ -249,26 +270,54 @@ $(document).ready(function() {
                           palavra_add += palavra[i];
                           palavra_var2 += palavra[i];
                           palavra_var3 += palavra[i];
-                          palavra_var5 += palavra[i];
                           palavra_var4 += palavra[i];
+                          palavra_var5 += palavra[i];
+                          palavra_var6 += palavra[i];
+                          palavra_var7 += palavra[i];
+                          palavra_var += palavra[i];
                           $("#palavra").append(palavra[i]);
                       }
+                      else if (palavra[i] == palavra_var6[i]){
+                          console.log('entrou var 6');
+                          palavra_add += palavra[i];
+                          palavra_var2 += palavra[i];
+                          palavra_var3 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          palavra_var5 += palavra[i];
+                          palavra_var6 += palavra[i];
+                          palavra_var7 += palavra[i];
+                          palavra_var += palavra[i];
+                          $("#palavra").append(palavra[i]);
+                      }
+
+                      else if (palavra[i] == palavra_var7[i]){
+                          console.log('entrou var 7');
+                          palavra_add += palavra[i];
+                          palavra_var2 += palavra[i];
+                          palavra_var3 += palavra[i];
+                          palavra_var4 += palavra[i];
+                          palavra_var5 += palavra[i];
+                          palavra_var6 += palavra[i];
+                          palavra_var7 += palavra[i];
+                          palavra_var += palavra[i];
+                          $("#palavra").append(palavra[i]);
+                      }
+
                       else {
                           palavra_add += " _ ";
                           palavra_var2 += " _ ";
                           palavra_var3 += " _ ";
                           palavra_var4 += " _ ";
                           palavra_var5 += " _ ";
+                          palavra_var6 += " _ ";
+                          palavra_var7 += " _ ";
+                          palavra_var += " _ ";
                           $("#palavra").append(" _ ");
                       }
 
-
-
                   } //END FOR
-
                   palavra_var = palavra_add;
 
-                console.log(palavra_var3);
 
               }
 
@@ -279,8 +328,24 @@ $(document).ready(function() {
       }
       contador++;
       console.log('contador '+contador);
+      var s = document.getElementById('palavra').innerHTML;
+      console.log('s: '+s);
+
+      if (s.indexOf("_") > -1) {
+        console.log('não ganhou');
+      }else{
+        alert("Você ganhou, Parabéns");
+      }
+
+
+
+
+
+
     }//END FUNCTION
   }//END FUNCTION
+
+
 
 
 
